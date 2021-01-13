@@ -1,0 +1,8 @@
+autopep8
+Django
+django-filter
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+gunicorn
+whitenoise
