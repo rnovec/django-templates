@@ -29,7 +29,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
-
+from users.token import MyTokenObtainPairView
 # API Router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -38,7 +38,7 @@ router.register(r'users', UserViewSet)
 # http://domain.com/api/v1/token/...
 
 jwt_urlpatterns = [
-    path('access/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('access/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
