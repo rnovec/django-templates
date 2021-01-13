@@ -21,7 +21,7 @@ from django.urls import path
 
 # REST Framework
 from rest_framework import routers
-from .views import UserViewSet
+from users.views import UserViewSet
 
 # Simple JWT
 from rest_framework_simplejwt.views import (

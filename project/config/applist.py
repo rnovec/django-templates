@@ -19,7 +19,9 @@ THIRD_PARTY_APPS = (
     'django_filters',
 )
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'users',
+)
 
 INSTALLED_APPS = BEFORE_DJANGO_APPS + DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 

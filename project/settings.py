@@ -25,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = bool(os.environ.get('DEBUG', 0))
+DJANGO_ENV = os.environ.get('DJANGO_ENV')
+DEBUG = True if DJANGO_ENV == 'development' else False
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,6 +44,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project.urls'
+
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
