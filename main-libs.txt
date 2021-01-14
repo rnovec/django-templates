@@ -5,5 +5,7 @@ djangorestframework
 django-rest-registration
 djangorestframework-simplejwt
 django-cors-headers
+pyyaml 
+uritemplate
 gunicorn
 whitenoise

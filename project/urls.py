@@ -18,9 +18,11 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
 
 # REST Framework
 from rest_framework import routers
+from rest_framework.schemas import get_schema_view
 from users.views import UserViewSet
 
 # Simple JWT
@@ -44,11 +46,26 @@ jwt_urlpatterns = [
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
 
+docs = [
+    # Swagger
+    path('', TemplateView.as_view(
+        template_name='swagger.html',
+        extra_context={'schema_url': 'openapi-schema'}
+    ), name='swagger-ui'),
+
+    # OpenAPI
+    path('openapi/', get_schema_view(
+        title="DRF API docs",
+        version="1.0.0",
+    ), name='openapi-schema'),
+]
+
 # api urls
 # http://domain.com/api/v1/...
 
 api_urlpatterns = [
     path('', include(router.urls)),
+    path('docs/', include(docs)),                
     path('token/', include(jwt_urlpatterns)),
     path('accounts/', include('rest_registration.api.urls')),
     path('auth/', include('rest_framework.urls', namespace='rest_framework'))
@@ -57,7 +74,7 @@ api_urlpatterns = [
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', admin.site.urls),                 
+    path('', admin.site.urls), 
     path('api/v1/', include(api_urlpatterns)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
