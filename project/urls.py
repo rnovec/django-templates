@@ -30,6 +30,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 from users.token import MyTokenObtainPairView
+
 # API Router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -49,7 +50,8 @@ jwt_urlpatterns = [
 api_urlpatterns = [
     path('', include(router.urls)),
     path('token/', include(jwt_urlpatterns)),
-    path("auth/", include("rest_framework.urls", namespace="rest_framework"))
+    path('accounts/', include('rest_registration.api.urls')),
+    path('auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 # Wire up our API using automatic URL routing.

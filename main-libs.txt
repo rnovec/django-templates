@@ -2,6 +2,7 @@ autopep8
 Django
 django-filter
 djangorestframework
+django-rest-registration
 djangorestframework-simplejwt
 django-cors-headers
 gunicorn

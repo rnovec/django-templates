@@ -22,16 +22,29 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
+# Django Registration
+# https://django-registration.readthedocs.io/en/3.1.1/
+
+REST_REGISTRATION = {
+    'REGISTER_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
+    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
+}
+
+# Simple JWT
+# https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=1),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=1),
     "USER_ID_FIELD": "id",
-    'USER_ID_CLAIM': 'id',
+    'USER_ID_CLAIM': 'user_id',
     'UPDATE_LAST_LOGIN': True
 }
 
 # Django Cors Headers
 # https://pypi.org/project/django-cors-headers/
 # CORS_ORIGIN_WHITELIST = os.environ.get("DJANGO_ALLOWED_ORIGINS").split(' ')
+
 CORS_ALLOW_ORIGINS_ALL = False
 CORS_ALLOW_CREDENTIALS = True
