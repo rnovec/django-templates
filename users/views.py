@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
+from rest_framework.decorators import action
 
 from .models import User
 from .serializers import UserSerializer
@@ -15,6 +16,41 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
+
+    @action(detail=True, methods=['post'])
+    def set_password(self, request, pk=None):
+        """
+        Set user password
+
+        POST /api/v1/users/:id/set_password/
+        """
+        user = self.get_object()
+        serializer = PasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            user.set_password(serializer.data['password'])
+            user.save()
+            return Response({'status': 'password set'})
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False)
+    def recent_users(self, request):
+        """
+        List recent users
+
+        GET /api/v1/users/recent_users/
+        """
+        recent_users = User.objects.all().order_by('-last_login')
+
+        page = self.paginate_queryset(recent_users)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(recent_users, many=True)
+        return Response(serializer.data)
+
 
     def list(self, request, *args, **kwargs):
         """
