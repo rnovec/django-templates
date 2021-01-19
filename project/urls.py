@@ -24,6 +24,7 @@ from django.views.generic.base import TemplateView
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 from users.views import UserViewSet
+from posts.views import PostViewSet
 
 # Simple JWT
 from rest_framework_simplejwt.views import (
@@ -36,6 +37,7 @@ from users.token import MyTokenObtainPairView
 # API Router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'posts', PostViewSet)
 
 # jwt urls
 # http://domain.com/api/v1/token/...

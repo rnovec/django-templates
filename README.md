@@ -33,6 +33,52 @@ This a Django 3.0+ project
 
     $ python manage.py runserver
 
+### Assignments
+
+- 10 Examples of ORM Create
+- 10 Examples of ORM List/Filter/Order
+- 5 Examples of ORM Get
+- 5 Examples of ORM Update/Partial
+- 5 Examples of ORM Delete
+
+### Glossary
+
+- Model
+- Serializer
+- Viewset
+- Mixin
+- JSON
+- Headers
+  - Content-Type
+  - Authorization
+  - Cookie
+  - Accept
+  - Content-Length
+  - Attachment
+- Parsers
+- Renders
+- Status codes
+  - 200:
+  - 201:
+  - 400:
+  - 401:
+  - 404:
+  - 500:
+    ...
+- HTTP Methods:
+  - GET
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+  - HEAD
+  - OPTIONS
+- JWT
+  - Definition
+  - HS254
+- OpenAPI
+ - 
+
 ## License
 
 The MIT License (MIT)
