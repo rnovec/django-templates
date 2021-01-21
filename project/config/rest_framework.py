@@ -22,6 +22,8 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
+# Django REST Social Auth
+# https://pypi.org/project/rest-social-auth/
 
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_KEY') 
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET') 

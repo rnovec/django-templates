@@ -7,6 +7,7 @@ This a Django 3.0+ project
 - Django 3.0+
 - [Django REST Framework](https://www.django-rest-framework.org/) - Powerful and flexible toolkit for building Web APIs.
 - [Django REST Registration](https://django-rest-registration.readthedocs.io/en/latest/index.html) - User registration REST API, based on Django-REST-Framework.
+- [Django REST Social Auth](https://pypi.org/project/rest-social-auth/) - Django rest framework resources for social auth
 - [Django Cors Headers](https://pypi.org/project/django-cors-headers/) - A Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS).
 - [Django Filter](https://django-filter.readthedocs.io/en/stable/) - Simple way to filter down a queryset based on parameters a user provides.
 - [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/) - A JSON Web Token authentication plugin for the Django REST Framework.
