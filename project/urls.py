@@ -23,7 +23,7 @@ from django.views.generic.base import TemplateView
 # REST Framework
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
-from users.views import UserViewSet
+from users.views import UserViewSet, home
 from posts.views import PostViewSet
 
 # Simple JWT
@@ -43,6 +43,7 @@ router.register(r'posts', PostViewSet)
 # http://domain.com/api/v1/token/...
 
 jwt_urlpatterns = [
+    path('social/', include('rest_social_auth.urls_jwt_pair')),
     path('access/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
@@ -76,7 +77,8 @@ api_urlpatterns = [
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', admin.site.urls), 
+    path('', home), 
+    path('admin/', admin.site.urls), 
     path('api/v1/', include(api_urlpatterns)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

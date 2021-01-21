@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
@@ -5,6 +7,9 @@ from rest_framework.decorators import action
 
 from .models import User
 from .serializers import UserSerializer
+
+def home(request):
+    return render(request, 'index.html')
 
 # ViewSets define the view behavior.
 # https://github.com/encode/django-rest-framework/blob/master/rest_framework/viewsets.py#L235
@@ -50,7 +55,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(recent_users, many=True)
         return Response(serializer.data)
-
 
     def list(self, request, *args, **kwargs):
         """

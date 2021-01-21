@@ -22,6 +22,11 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
+
+SOCIAL_AUTH_FACEBOOK_KEY = '381870145766778'
+SOCIAL_AUTH_FACEBOOK_SECRET = '829def2d0af561bae205a8235546e763'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]  # optional
+
 # Django Registration
 # https://django-registration.readthedocs.io/en/3.1.1/
 

@@ -17,6 +17,8 @@ THIRD_PARTY_APPS = (
     'corsheaders',
     'rest_framework',
     'rest_registration',
+    'social_django', 
+    'rest_social_auth',
     'django_filters',
 )
 

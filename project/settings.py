@@ -47,6 +47,12 @@ ROOT_URLCONF = 'project.urls'
 
 AUTH_USER_MODEL = 'users.User'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    # and maybe some others ...
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
