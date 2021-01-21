@@ -5,6 +5,7 @@ djangorestframework
 django-rest-registration
 djangorestframework-simplejwt
 django-cors-headers
+rest-social-auth
 pyyaml 
 uritemplate
 gunicorn
